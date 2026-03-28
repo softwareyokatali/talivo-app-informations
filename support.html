@@ -1,81 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Talivo Support</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Talivo – Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #f5f7fb;
-  color: #1c1c1e;
-}
+    :root {
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --ink: #1a1814;
+      --ink-soft: #5a5651;
+      --accent: #2d6a4f;
+      --accent-light: #d8f3dc;
+      --border: #e8e4df;
+      --radius: 16px;
+    }
 
-.container {
-  max-width: 600px;
-  margin: 80px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  text-align: center;
-}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px 80px;
+    }
 
-h1 {
-  margin-bottom: 10px;
-}
+    body::before {
+      content: '';
+      position: fixed;
+      top: -180px;
+      right: -120px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #b7e4c7 0%, transparent 70%);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-p {
-  color: #555;
-  line-height: 1.6;
-}
+    .card {
+      position: relative;
+      z-index: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      max-width: 680px;
+      width: 100%;
+      padding: 56px 60px 52px;
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.04),
+        0 8px 32px rgba(0,0,0,0.06),
+        0 24px 64px rgba(0,0,0,0.04);
+      animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
 
-.email {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: #007aff;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: 500;
-}
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-.email:hover {
-  background: #005ecb;
-}
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
 
-.footer {
-  margin-top: 30px;
-  font-size: 14px;
-}
+    .app-badge svg {
+      width: 14px; height: 14px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
-.footer a {
-  color: #007aff;
-  text-decoration: none;
-}
-</style>
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 5vw, 42px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 440px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, var(--accent-light), var(--border), transparent);
+      margin-bottom: 40px;
+    }
+
+    /* Contact card */
+    .contact-block {
+      padding: 28px 32px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      animation: fadeIn 0.5s ease 0.15s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(-8px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .icon-wrap {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-wrap svg {
+      width: 20px; height: 20px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 4px; }
+
+    .contact-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .contact-email {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      transition: opacity 0.2s;
+    }
+
+    .contact-email:hover { opacity: 0.7; text-decoration: underline; }
+
+    /* Response time note */
+    .note {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeIn 0.5s ease 0.25s both;
+    }
+
+    .note-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .note-icon svg {
+      width: 16px; height: 16px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .note p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* Privacy policy link */
+    .policy-link {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeIn 0.5s ease 0.35s both;
+    }
+
+    .policy-link span {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    .policy-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .policy-link a:hover { opacity: 0.7; }
+
+    .policy-link a svg {
+      width: 14px; height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #b8b3ad;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    @media (max-width: 520px) {
+      .card { padding: 36px 28px 40px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
-  <h1>Talivo Support</h1>
+<div class="card">
 
-  <p>If you need help with Talivo, feel free to contact us anytime.</p>
-
-  <a class="email" href="mailto:softwareyokatali@gmail.com">
-    Contact Support
-  </a>
-
-  <p>We usually respond within 24 hours.</p>
-
-  <div class="footer">
-    <p><a href="./">Privacy Policy</a></p>
+  <div class="app-badge">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    Support
   </div>
+
+  <h1>We're here to <em>help.</em></h1>
+  <p class="subtitle">If you need help with Talivo, feel free to reach out anytime. We're happy to assist.</p>
+
+  <div class="divider"></div>
+
+  <div class="contact-block">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </div>
+    <div class="contact-info">
+      <span class="contact-label">Email us</span>
+      <a class="contact-email" href="mailto:softwareyokatali@gmail.com">softwareyokatali@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    </div>
+    <p>We usually respond within 24 hours.</p>
+  </div>
+
+  <div class="policy-link">
+    <span>© 2026 Talivo</span>
+    <a href="./">
+      Privacy Policy
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
 </div>
+
+<footer>All rights reserved</footer>
 
 </body>
 </html>
