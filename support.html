@@ -121,7 +121,6 @@
       margin-bottom: 40px;
     }
 
-    /* Contact card */
     .contact-block {
       padding: 28px 32px;
       background: var(--bg);
@@ -178,7 +177,6 @@
 
     .contact-email:hover { opacity: 0.7; text-decoration: underline; }
 
-    /* Response time note */
     .note {
       margin-top: 20px;
       display: flex;
@@ -213,43 +211,14 @@
       line-height: 1.5;
     }
 
-    /* Privacy policy link */
-    .policy-link {
+    .copyright {
       margin-top: 40px;
       padding-top: 28px;
       border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      animation: fadeIn 0.5s ease 0.35s both;
-    }
-
-    .policy-link span {
       font-size: 13px;
       color: var(--ink-soft);
       font-weight: 300;
-    }
-
-    .policy-link a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .policy-link a:hover { opacity: 0.7; }
-
-    .policy-link a svg {
-      width: 14px; height: 14px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      animation: fadeIn 0.5s ease 0.35s both;
     }
 
     footer {
@@ -297,13 +266,7 @@
     <p>We usually respond within 24 hours.</p>
   </div>
 
-  <div class="policy-link">
-    <span>© 2026 Talivo</span>
-    <a href="./">
-      Privacy Policy
-      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
+  <div class="copyright">&#169; 2026 Talivo</div>
 
 </div>
 
